@@ -23,7 +23,9 @@ type PointsData = (
       edge: Edge
       stroke: Stroke
       d: string,
-      id: string
+      id: string,
+      toId: string | undefined,
+      fromId: string | undefined
     }
   | undefined
 )[]
@@ -216,7 +218,7 @@ export function ConnectLines(props: ConnectLinesProps) {
         {pointsData?.map((p) => {
           return (
             <path
-              id={`${p.fromId}-${p.toId}`}
+              id={`${p?.fromId}-${p?.toId}`}
               d={p?.d}
               fill="none"
               key={p?.d}
